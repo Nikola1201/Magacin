@@ -1,5 +1,7 @@
 package mag;
 
+import java.util.Objects;
+
 public class Artikal {
 	private int id;
 	private String naziv;
@@ -29,6 +31,26 @@ public class Artikal {
 	}
 	public void setKolicina(int kolicina) {
 		this.kolicina = kolicina;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, kolicina, naziv, opis);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Artikal other = (Artikal) obj;
+		return id == other.id && kolicina == other.kolicina && Objects.equals(naziv, other.naziv)
+				&& Objects.equals(opis, other.opis);
+	}
+	@Override
+	public String toString() {
+		return "Artikal [id=" + id + ", naziv=" + naziv + ", opis=" + opis + ", kolicina=" + kolicina + "]";
 	}
 	
 	
