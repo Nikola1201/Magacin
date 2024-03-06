@@ -11,25 +11,37 @@ public class Artikal {
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(int id) throws Exception {
+		if(id<=0) {
+			throw new Exception("Id ne sme biti 0 ili manji od 0");
+		}
 		this.id = id;
 	}
 	public String getNaziv() {
 		return naziv;
 	}
-	public void setNaziv(String naziv) {
+	public void setNaziv(String naziv) throws Exception {
+		if(naziv==null || naziv.isEmpty()) {
+			throw new Exception("Naziv ne sme biti null ili prazan string");
+		}
 		this.naziv = naziv;
 	}
 	public String getOpis() {
 		return opis;
 	}
-	public void setOpis(String opis) {
+	public void setOpis(String opis) throws Exception {
+		if(opis==null || opis.isEmpty()) {
+			throw new Exception("Opis ne sme biti null ili prazan string");
+		}
 		this.opis = opis;
 	}
 	public int getKolicina() {
 		return kolicina;
 	}
-	public void setKolicina(int kolicina) {
+	public void setKolicina(int kolicina) throws Exception {
+		if(kolicina<0) {
+			throw new Exception("Kolicina ne sme biti manja od 0");
+		}
 		this.kolicina = kolicina;
 	}
 	@Override

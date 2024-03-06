@@ -4,7 +4,19 @@ import java.util.GregorianCalendar;
 import java.util.Objects;
 
 public class KucnaHemija extends Artikal {
-	
+	private GregorianCalendar datum;
+
+	public GregorianCalendar getDatum() {
+		return datum;
+	}
+
+	public void setDatum(GregorianCalendar datum) throws Exception {
+		if(datum==null) {
+			throw new Exception("Datum ne sme biti null");
+		}
+		this.datum = datum;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -25,16 +37,7 @@ public class KucnaHemija extends Artikal {
 		return Objects.equals(datum, other.datum);
 	}
 
-	private GregorianCalendar datum;
-
-	public GregorianCalendar getDatum() {
-		return datum;
-	}
-
-	public void setDatum(GregorianCalendar datum) {
-		this.datum = datum;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "KucnaHemija [datum=" + datum + "]";
